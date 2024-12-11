@@ -16,9 +16,13 @@ interface cartState {
   items: cartItem[];
 }
 
+
 const initialState: cartState = {
-  items: JSON.parse(localStorage.getItem("cartItems") as string) || [],
+  items: typeof window !== "undefined"
+    ? JSON.parse(localStorage.getItem("cartItems") as string) || []
+    : [],
 };
+
 
 export const cartSlice = createSlice({
   name: "cart",
