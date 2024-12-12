@@ -124,7 +124,7 @@ const ProductCard = ({ product }: Props) => {
   };
 
   return (
-    <div className="p-4">
+    <div className="p-4  transform rounded-lg hover:scale-110 transition-all duration-300 bg-white shadow-md">
       {/* Image */}
       <div className="w-[200px] h-[150px]">
         <Image
@@ -141,7 +141,7 @@ const ProductCard = ({ product }: Props) => {
       </p>
       {/* Title */}
       <Link href={`/product/product-details/${product.id}`} legacyBehavior>
-        <h1 className="text-lg cursor-pointer hover:text-blue-900 transition-all hover:underline sm:w-full sm:truncate mt-2 text-black font-semibold">
+        <h1 className="text-lg cursor-pointer hover:text-blue-900 transition-all hover:underline w-60 sm:w-full sm:truncate mt-2 text-black font-semibold">
           {product.title}
         </h1>
       </Link>
