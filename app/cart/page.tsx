@@ -7,25 +7,21 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { useUser } from "@clerk/nextjs";
 import { addItem, cartItem, clearCart, removeItem } from "../store/cartSlice";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+
 
 
 const Cart = () => {
   const dispatch = useDispatch();
   //Add item
   const addItemHandler = (item: cartItem) => {
-    toast.success("Item Added to Cart");
     dispatch(addItem(item));
   };
   // remove item
   const removeItemHandler = (id: number) => {
-    toast.success("Item Removed from Cart");
     dispatch(removeItem({ id }));
   };
   // remove cart
   const removeCartHandler = () => {
-    toast.success("Cart Cleared");
     dispatch(clearCart());
   };
 
@@ -65,17 +61,6 @@ const Cart = () => {
         <div className="md:w-4/5 w-[95%] mx-auto grid grid-cols-1 xl:grid-cols-6 gap-12">
           {/* cart items */}
           <div className="rounded-lg shadow-md overflow-hidden xl:col-span-4">
-            {/* <div className="">
-              <h1 className="p-4 text-xl sm:text-2xl md:text-3xl font-bold text-white bg-blue-700">
-                Your Cart ({totalQuantity} Items)
-              </h1>
-              <Button
-                className=" bg-red-600 mt-4"
-                onClick={removeCartHandler}
-              >
-                Clear Cart
-              </Button>
-            </div> */}
             <div className="p-4 flex justify-between items-center text-lg sm:text-2xl md:text-3xl font-bold text-white bg-blue-700">
               <h1>Your Cart ({totalQuantity} Items)</h1>
               <Button className="bg-red-600" onClick={removeCartHandler}>
@@ -169,7 +154,6 @@ const Cart = () => {
           </div>
         </div>
       )}
-      <ToastContainer  position="bottom-center"/>
     </div>
   );
 };
